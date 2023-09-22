@@ -5,12 +5,15 @@
 </p>
 
 ---
-##  Primeros Pasos:
 
+## Primeros Pasos:
 
 #### 🔹 Marca este proyecto con una ⭐
+
 #### 🔹 Sigue las orientaciones que tenemos en este repositorio. 📚
+
 #### 🔹 ¡Visita la página del desafío haciendo clic aquí! [Link do Challenge](https://www.aluracursos.com/challenges/oracle-one-back-end/hotelalura) 📃
+
 </br>
 
 ## 🖥️ Tecnologías Utilizadas:
@@ -22,22 +25,28 @@
 - Plugin WindowBuilder </br>
 
 ---
+
 ## ⚠️ Importante! ⚠️
 
 ☕ Use Java versión 8 o superior para compatibilidad. </br></br>
 📝 Recomendamos usar el editor de Eclipse para compatibilidad con la Interfaz Gráfica. </br></br>
 🎨 La interfaz contiene dos métodos importantes:
+
 - setResizable(false): determina el tamaño de la ventana, y a través del parámetro <strong>false</strong>, la pantalla no se puede maximizar;
 - setLocationRelativeTo(null): determina la ubicación de la ventana, y a través del parámetro <strong>null</strong> la mantiene centrada en la pantalla.
 
 #### Para este desafío, concéntrate en la parte lógica y la conexión con la base de datos, después de completar el desafío, siéntete libre de agregar nuevas funciones y modificar la interfaz gráfica.
+
 ---
 
 ## 🔍 ¡Analizando nuestro repositorio!
 
 ### Este es el repositorio base de nuestro proyecto, en el encontrarás:
+
 #### 🔹 src/views: carpeta con toda la interfaz gráfica de las pantallas necesarias para desarrollar el programa;
+
 #### 🔹 src/imagenes: carpeta con imágenes que puedes usar en tu proyecto. Siéntete libre de usar otros, si lo deseas;
+
 </br>
 
 ## ⬇️ Download
@@ -66,7 +75,7 @@
 
 #### 🔹 Clonar o descargar el ZIP
 
-1 - Para clonar, simplemente copia el <em>url</em> resaltado en la imagen y ubicado justo debajo del HTTPS, crea una carpeta en tu computadora, abre el <em>cmd</em> o el <em>git bash</em> dentro de esa carpeta y luego ingresa el comando <strong>git clone</strong> y con el botón derecho del mouse dentro del terminal haz click en la opcion <strong>Paste</strong> para pegar el <em>url</em> y presiona <em>Enter</em>. 
+1 - Para clonar, simplemente copia el <em>url</em> resaltado en la imagen y ubicado justo debajo del HTTPS, crea una carpeta en tu computadora, abre el <em>cmd</em> o el <em>git bash</em> dentro de esa carpeta y luego ingresa el comando <strong>git clone</strong> y con el botón derecho del mouse dentro del terminal haz click en la opcion <strong>Paste</strong> para pegar el <em>url</em> y presiona <em>Enter</em>.
 
 <p align="center" >
      <img width="600" heigth="600" src="https://user-images.githubusercontent.com/101413385/173256523-79d38ee2-8668-435c-b31a-ac6ba78bb813.png">
@@ -117,7 +126,7 @@ Luego haz clic en el botón <em>Browse</em> y busca el proyecto en el directorio
 
 Tras realizar la importación a tu editor, es necesario instalar la librería <strong>JCalendar</strong>, de lo contrário, el proyecto presentará un error y no será posible abrir la ventana de <strong>Reservas</strong>. </br>
 
-Para instalar, se necesita descargar el paquete a través de ese enlace: 
+Para instalar, se necesita descargar el paquete a través de ese enlace:
 🔹 [Link para el JCalendar](https://toedter.com/jcalendar/)
 
 <p align="center" >
@@ -148,7 +157,7 @@ El proyecto tendrá un mensaje de error que indica que la ruta de la biblioteca 
      <img width="600" heigth="600" src="https://user-images.githubusercontent.com/101413385/173167817-ddbdedc5-c4a6-4f6d-bd86-f86a153d6b88.png">
 </p>
 
-Para importar el <strong>Jcalendar</strong> desde tu computadora, después de haber "extraído" los archivos de la descarga, pulsa en <em>ClassPath</em> y luego en <em>Add External JARS</em> agrega uno por uno  o selecciona todos de una vez y haz click en <em>Apply and Close</em>.
+Para importar el <strong>Jcalendar</strong> desde tu computadora, después de haber "extraído" los archivos de la descarga, pulsa en <em>ClassPath</em> y luego en <em>Add External JARS</em> agrega uno por uno o selecciona todos de una vez y haz click en <em>Apply and Close</em>.
 
 <p align="center" >
      <img width="600" heigth="600" src="https://user-images.githubusercontent.com/101413385/169596029-a9fa21ef-8d90-45a6-8aa2-be2d911d4074.png">
@@ -159,7 +168,6 @@ Por lo tanto, el proyecto debe contener los siguientes archivos después de las 
 <p align="center" >
      <img width="600" heigth="600" src="https://user-images.githubusercontent.com/101413385/173695620-7a4893e9-b9a1-44d6-8b70-c94a85ea891e.png">
 </p>
-
 
 ## 🚧 Proyecto
 
@@ -193,7 +201,7 @@ Luego haz clic en <em>General</em> y en <em>Workspace</em>. Si tu <em>Text File 
 
 ### ¿Cómo importar MySqlConnector al proyecto?
 
-Es la misma ruta descrita para importar el <strong>JCalendar</strong>, haga clic con el botón derecho en el proyecto, <em>Build Path</em>, <em>Configure Build Path</em>, <em>Libraries</em>, <em>Add External JARs</em>. Para encontrar la ruta de este archivo <strong>.jar</strong>, ve al disco duro de tu computadora e ingresa a la carpeta  <em>Archivos de Programas (x86)</em>.
+Es la misma ruta descrita para importar el <strong>JCalendar</strong>, haga clic con el botón derecho en el proyecto, <em>Build Path</em>, <em>Configure Build Path</em>, <em>Libraries</em>, <em>Add External JARs</em>. Para encontrar la ruta de este archivo <strong>.jar</strong>, ve al disco duro de tu computadora e ingresa a la carpeta <em>Archivos de Programas (x86)</em>.
 
 - Archivos de Programas (x86):
 <p align="center" >
@@ -223,7 +231,6 @@ Para este reto te proponemos dos tablas: <strong>Reservas</strong> y <strong>Hu�
 <p align="center" >
      <img width="500" heigth="500" src="https://user-images.githubusercontent.com/101413385/169529338-09a4d4c2-1b5a-41dc-b305-38498ebc29a8.png">
 </p>
-
 
 ## 🗔 Plugin WindowBuilder
 
@@ -271,22 +278,21 @@ La pestaña de <em>Design</em> se abrirá por encima de la zona del <em>Console<
 
 ### ¿Cómo incluir mi proyecto con el "#" del desafío?
 
-1) Ten el <strong>Fork</strong> del proyecto en tu repositorio en Github.
-2) Utiliza el topico **challengeonehotelaluralatam4** </br>
-3) Ve a la pestaña derecha de tu proyecto y haz clic en el engranaje de configuración en la sección <em>About</em>, selecciona el campo **topics** e inserae la etiqueta **challengeonehotelaluralatam4**
-
+1. Ten el <strong>Fork</strong> del proyecto en tu repositorio en Github.
+2. Utiliza el topico **challengeonehotelaluralatam4** </br>
+3. Ve a la pestaña derecha de tu proyecto y haz clic en el engranaje de configuración en la sección <em>About</em>, selecciona el campo **topics** e inserae la etiqueta **challengeonehotelaluralatam4**
 
 ### ¿Cómo hago la entrega final de mi Proyecto?
 
-4) Rellena el siguiente formulario con tus datos personales, junto con el enlace de tu repositorio. 🔹 [Link para o formulário](https://lp.alura.com.br/alura-latam-entrega-challenge-one-esp-back-end)
+4. Rellena el siguiente formulario con tus datos personales, junto con el enlace de tu repositorio. 🔹 [Link para o formulário](https://lp.alura.com.br/alura-latam-entrega-challenge-one-esp-back-end)
 
 <p align="center" >
      <img width="700" heigth="700" src="https://user-images.githubusercontent.com/91544872/218745016-7d4582b1-0a7a-4501-a2a5-2b57da523635.png">
 </p>
 
-5) Ve a tu correo electrónico y canjea tu insignia obtenida al completar otro desafío del Proyecto ONE! 🏆
+5. Ve a tu correo electrónico y canjea tu insignia obtenida al completar otro desafío del Proyecto ONE! 🏆
 
-6) ¡No olvides poner un enlace o video de tu proyecto en Linkedin! Etiqueta a #Oracle y #AluraLatam 🏁
+6. ¡No olvides poner un enlace o video de tu proyecto en Linkedin! Etiqueta a #Oracle y #AluraLatam 🏁
 
 🧡 <strong>Oracle</strong></br>
 <a href="https://www.linkedin.com/company/oracle/" target="_blank">
