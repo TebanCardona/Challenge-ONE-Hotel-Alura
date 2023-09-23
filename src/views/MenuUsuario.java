@@ -18,7 +18,6 @@ import java.util.Date;
 import java.awt.SystemColor;
 import javax.swing.JSeparator;
 
-@SuppressWarnings("serial")
 public class MenuUsuario extends JFrame {
 
   private JPanel contentPane;
