@@ -100,4 +100,19 @@ public class Reservas {
     this.formaPago = formaPago;
   }
 
+  public boolean getNull() {
+    boolean result = false;
+    if (getFechaEntrada().equals(null)
+        || getFechaSalida().equals(null)
+        || getFormaPago().equals(null)
+        || getFormaPago().isEmpty()
+        || getValor().equals(null)) {
+      result = true;
+    }
+    return result;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
 }

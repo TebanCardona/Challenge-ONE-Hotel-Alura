@@ -164,15 +164,16 @@ public class Huespedes {
 
   public boolean getNull() {
     boolean result = false;
-    if (nombre.isBlank()
-        || nombre.equals(null)
-        || apellido.equals(null)
-        || apellido.isBlank()
-        || nacionalidad.equals(null)
-        || nacionalidad.isBlank()
-        || tel.equals(null)
-        || tel.isBlank()) {
-      result = false;
+    if (getNombre().isEmpty()
+        || getNombre().equals(null)
+        || getApellido().equals(null)
+        || getApellido().isEmpty()
+        || getNacionalidad().equals(null)
+        || getNacionalidad().isEmpty()
+        || getTel().equals(null)
+        || getTel().isEmpty()
+        || getFechaNacimiento().equals(null)) {
+      result = true;
     }
     return result;
   }

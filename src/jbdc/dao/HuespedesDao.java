@@ -1,6 +1,7 @@
 package jbdc.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,7 +25,7 @@ public class HuespedesDao {
     try {
       PreparedStatement statement = conn.prepareStatement("INSERT INTO huespedes"
           + "(nombre, apellido, fecha_nacimiento, nacionalidad, tel, id_reserva)"
-          + "VALUES(?,?,?,?,?)", Statement.NO_GENERATED_KEYS);
+          + "VALUES(?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
       try (statement) {
         statement.setString(1, huesped.getNombre());
         statement.setString(2, huesped.getApellido());
@@ -73,5 +74,51 @@ public class HuespedesDao {
       throw new RuntimeException(e);
     }
     return resultado;
+  }
+
+  public int eliminar(Integer id) {
+    try {
+      final PreparedStatement statement = conn.prepareStatement("DELETE FROM huespedes WHERE ID = ?");
+
+      try (statement) {
+        statement.setInt(1, id);
+        statement.execute();
+
+        int updateCount = statement.getUpdateCount();
+
+        return updateCount;
+      }
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  public int editar(String nombre, String apellido, Date fechaNacimiento, String nacionalidad, String tel,
+      int id_reserva) {
+    try {
+      PreparedStatement statement = conn.prepareStatement("UPDATE reservas SET " +
+          "nombre = ?, " +
+          "apellido = ?, " +
+          "fecha_nacimiento = ?, " +
+          "nacionalidad = ?, " +
+          "tel = ?, " +
+          "id_reserva= ? " +
+          "WHERE id = ?");
+      try (statement) {
+        statement.setString(1, nombre);
+        statement.setString(2, apellido);
+        statement.setDate(3, fechaNacimiento);
+        statement.setString(4, nacionalidad);
+        statement.setString(5, tel);
+        statement.setInt(6, id_reserva);
+
+        statement.execute();
+
+        int reservaCount = statement.getUpdateCount();
+        return reservaCount;
+      }
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
+    }
   }
 }
