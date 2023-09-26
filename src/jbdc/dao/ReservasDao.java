@@ -20,7 +20,7 @@ public class ReservasDao {
     this.conn = conn;
   }
 
-  public int editar(Date fechaEntrada, Date fechaSalida, int valor, String formaPago) {
+  public int editar(int id, Date fechaEntrada, Date fechaSalida, int valor, String formaPago) {
     try {
       PreparedStatement statement = conn.prepareStatement("UPDATE reservas SET " +
           "fecha_entrada = ?, " +
@@ -33,6 +33,7 @@ public class ReservasDao {
         statement.setDate(2, fechaSalida);
         statement.setInt(3, valor);
         statement.setString(4, formaPago);
+        statement.setInt(5, id);
         statement.execute();
 
         int reservaCount = statement.getUpdateCount();
@@ -75,18 +76,18 @@ public class ReservasDao {
     List<Reservas> resultado = new ArrayList<>();
     try {
       final PreparedStatement statement = conn.prepareStatement(
-          "SELECT R.id, R.fecha_entrada, R.fecha_salida, R.valor, R.forma_pago FROM reservas AS R");
+          "SELECT id, fecha_entrada, fecha_salida, valor, forma_pago FROM reservas AS R");
       try (statement) {
         statement.execute();
         final ResultSet resultSet = statement.getResultSet();
         try (resultSet) {
           while (resultSet.next()) {
             resultado.add(new Reservas(
-                resultSet.getInt("R.id"),
-                resultSet.getDate("R.fecha_entrada"),
-                resultSet.getDate("R.fecha_salida"),
-                resultSet.getInt("R.valor"),
-                resultSet.getString("R.forma_pago")));
+                resultSet.getInt("id"),
+                resultSet.getDate("fecha_entrada"),
+                resultSet.getDate("fecha_salida"),
+                resultSet.getInt("valor"),
+                resultSet.getString("forma_pago")));
           }
         }
       }
@@ -111,5 +112,31 @@ public class ReservasDao {
     } catch (SQLException e) {
       throw new RuntimeException(e);
     }
+  }
+
+  public List<Reservas> buscarId(int id) {
+    List<Reservas> resultado = new ArrayList<>();
+    try {
+      final PreparedStatement statement = conn.prepareStatement(
+          "SELECT fecha_entrada, fecha_salida, valor, forma_pago FROM reservas WHERE id = ?");
+      try (statement) {
+        statement.setInt(1, id);
+        statement.execute();
+        final ResultSet resultSet = statement.getResultSet();
+        try (resultSet) {
+          while (resultSet.next()) {
+            resultado.add(new Reservas(
+                id,
+                resultSet.getDate("fecha_entrada"),
+                resultSet.getDate("fecha_salida"),
+                resultSet.getInt("valor"),
+                resultSet.getString("forma_pago")));
+          }
+        }
+      }
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
+    }
+    return resultado;
   }
 }

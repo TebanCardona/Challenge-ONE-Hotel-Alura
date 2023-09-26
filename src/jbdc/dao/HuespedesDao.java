@@ -18,6 +18,36 @@ public class HuespedesDao {
     this.conn = conn;
   }
 
+  public List<Huespedes> buscarIdReserva(int id) {
+    List<Huespedes> resultado = new ArrayList<>();
+    try {
+      final PreparedStatement statement = conn.prepareStatement(
+          "SELECT id, nombre, apellido, fecha_nacimiento, nacionalidad, tel, id_reserva FROM huespedes WHERE id_reserva = ?");
+      try (statement) {
+        statement.setInt(1, id);
+        statement.execute();
+
+        final ResultSet resultSet = statement.getResultSet();
+
+        try (resultSet) {
+          while (resultSet.next()) {
+            resultado.add(new Huespedes(
+                resultSet.getInt("id"),
+                resultSet.getString("nombre"),
+                resultSet.getString("apellido"),
+                resultSet.getDate("fecha_nacimiento"),
+                resultSet.getString("nacionalidad"),
+                resultSet.getString("tel"),
+                resultSet.getInt("id_reserva")));
+          }
+        }
+      }
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
+    }
+    return resultado;
+  }
+
   public String guardar(Huespedes huesped) {
     if (huesped.getNull()) {
       throw new RuntimeException("Completa los Campos");
@@ -93,24 +123,27 @@ public class HuespedesDao {
     }
   }
 
-  public int editar(String nombre, String apellido, Date fechaNacimiento, String nacionalidad, String tel,
+  public int editar(int id, String nombre, String apellido, Date fechaNacimiento, String nacionalidad, String tel,
       int id_reserva) {
     try {
-      PreparedStatement statement = conn.prepareStatement("UPDATE reservas SET " +
+      PreparedStatement statement = conn.prepareStatement("UPDATE huespedes SET " +
+          "id = ?, " +
           "nombre = ?, " +
           "apellido = ?, " +
           "fecha_nacimiento = ?, " +
           "nacionalidad = ?, " +
           "tel = ?, " +
-          "id_reserva= ? " +
+          "id_reserva = ? " +
           "WHERE id = ?");
       try (statement) {
-        statement.setString(1, nombre);
-        statement.setString(2, apellido);
-        statement.setDate(3, fechaNacimiento);
-        statement.setString(4, nacionalidad);
-        statement.setString(5, tel);
-        statement.setInt(6, id_reserva);
+        statement.setInt(1, id);
+        statement.setString(2, nombre);
+        statement.setString(3, apellido);
+        statement.setDate(4, fechaNacimiento);
+        statement.setString(5, nacionalidad);
+        statement.setString(6, tel);
+        statement.setInt(7, id_reserva);
+        statement.setInt(8, id);
 
         statement.execute();
 
@@ -118,6 +151,7 @@ public class HuespedesDao {
         return reservaCount;
       }
     } catch (SQLException e) {
+      System.err.println(e);
       throw new RuntimeException(e);
     }
   }

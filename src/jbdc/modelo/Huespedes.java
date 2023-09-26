@@ -20,7 +20,7 @@ public class Huespedes {
    * @param tel
    * @param idReserva
    */
-  public Huespedes(Integer id, String nombre, String apellido, Date fechaNacimiento, String nacionalidad, String tel,
+  public Huespedes(int id, String nombre, String apellido, Date fechaNacimiento, String nacionalidad, String tel,
       Integer idReserva) {
     this.id = id;
     this.nombre = nombre;
@@ -38,12 +38,14 @@ public class Huespedes {
    * @param nacionalidad
    * @param tel
    */
-  public Huespedes(String nombre, String apellido, Date fechaNacimiento, String nacionalidad, String tel) {
+  public Huespedes(String nombre, String apellido, Date fechaNacimiento, String nacionalidad, String tel,
+      int idReserva) {
     this.nombre = nombre;
     this.apellido = apellido;
     this.fechaNacimiento = fechaNacimiento;
     this.nacionalidad = nacionalidad;
     this.tel = tel;
+    this.idReserva = idReserva;
   }
 
   /**

@@ -13,12 +13,15 @@ import jbdc.modelo.Reservas;
 public class TestConnection {
   public static void main(String[] args) throws SQLException {
     Connection conn = new ConnectionFactory().recuperaConexion();
+
     HuespedesDao huespedesDao = new HuespedesDao(conn);
     List<Huespedes> hues = huespedesDao.listar();
     hues.forEach(res -> huespedesDao.eliminar(res.getId()));
+
     ReservasDao reservasDao = new ReservasDao(conn);
     List<Reservas> reses = reservasDao.listar();
     reses.forEach(res -> reservasDao.eliminar(res.getId()));
+
     conn.close();
   }
 }
