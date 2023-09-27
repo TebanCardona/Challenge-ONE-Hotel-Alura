@@ -278,10 +278,8 @@ public class RegistroHuesped extends JFrame {
           try {
             huespedesController.guardar(huespede);
 
-            JOptionPane.showMessageDialog(null, "Huesped guardado con exito");
-
-            MenuUsuario menuUsuario = new MenuUsuario();
-            menuUsuario.setVisible(true);
+            Exito exito = new Exito();
+            exito.setVisible(true);
 
             dispose();
 

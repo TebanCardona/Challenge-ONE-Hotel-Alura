@@ -322,7 +322,6 @@ public class ReservasView extends JFrame {
             ReservasController reservasController = new ReservasController();
             reservasController.guardar(reservas);
 
-            JOptionPane.showMessageDialog(null, "Reserva exitosa!");
             RegistroHuesped registro = new RegistroHuesped(reservas);
 
             registro.setVisible(true);

@@ -189,9 +189,14 @@ public class Busqueda extends JFrame {
     btnexit.addMouseListener(new MouseAdapter() {
       @Override
       public void mouseClicked(MouseEvent e) {
-        MenuUsuario usuario = new MenuUsuario();
-        usuario.setVisible(true);
-        dispose();
+        int confirm = JOptionPane.showConfirmDialog(btnexit, "DESEA SALIR DEL PROGRAMA", "SALIR", 0,
+            2, null);
+        if (confirm == 0) {
+          MenuUsuario usuario = new MenuUsuario();
+          usuario.setVisible(true);
+          dispose();
+        }
+        return;
       }
 
       @Override
@@ -341,6 +346,15 @@ public class Busqueda extends JFrame {
     HuespedesController huespedesController = new HuespedesController();
     ReservasController reservasController = new ReservasController();
 
+    List<Reservas> reservas = reservasController.listar();
+    reservas.forEach(reserva -> modelo.addRow(new Object[] {
+        reserva.getId(),
+        reserva.getFechaEntrada(),
+        reserva.getFechaSalida(),
+        reserva.getValor(),
+        reserva.getFormaPago()
+    }));
+
     List<Huespedes> huespedes = huespedesController.listar();
     huespedes.forEach(huespede -> modeloHuesped.addRow(new Object[] {
         huespede.getId(),
@@ -350,15 +364,6 @@ public class Busqueda extends JFrame {
         huespede.getNacionalidad(),
         huespede.getTel(),
         huespede.getIdReserva()
-    }));
-
-    List<Reservas> reservas = reservasController.listar();
-    reservas.forEach(reserva -> modelo.addRow(new Object[] {
-        reserva.getId(),
-        reserva.getFechaEntrada(),
-        reserva.getFechaSalida(),
-        reserva.getValor(),
-        reserva.getFormaPago()
     }));
 
   }
@@ -413,7 +418,7 @@ public class Busqueda extends JFrame {
               modeloHuesped.removeRow(tbHuespedes.getSelectedRow());
               JOptionPane.showMessageDialog(null,
                   String.format("%d item eliminado con éxito!", filasModificadas));
-            }, () -> JOptionPane.showMessageDialog(null, "Por favor, elije un item"));
+            }, () -> JOptionPane.showMessageDialog(null, "Continuar"));
       }
       if (!tieneFilaElegidaReservas()) {
         Optional.ofNullable(modelo.getValueAt(tbReservas.getSelectedRow(), tbReservas.getSelectedColumn()))
@@ -423,7 +428,7 @@ public class Busqueda extends JFrame {
               modelo.removeRow(tbReservas.getSelectedRow());
               JOptionPane.showMessageDialog(null,
                   String.format("%d item eliminado con éxito!", filasModificadas));
-            }, () -> JOptionPane.showMessageDialog(null, "Por favor, elije un item"));
+            }, () -> JOptionPane.showMessageDialog(null, "Continuar"));
       } else {
         JOptionPane.showMessageDialog(null, "Por favor, elije un item");
         return;
@@ -452,7 +457,7 @@ public class Busqueda extends JFrame {
                   tel, idReserva);
               JOptionPane.showMessageDialog(null,
                   String.format("%d item editado con éxito!", filasModificadas));
-            }, () -> JOptionPane.showMessageDialog(null, "Por favor, elije un item"));
+            }, () -> JOptionPane.showMessageDialog(null, "Continuar"));
       }
       if (!tieneFilaElegidaReservas()) {
         Optional.ofNullable(modelo.getValueAt(tbReservas.getSelectedRow(), tbReservas.getSelectedColumn()))
@@ -466,7 +471,7 @@ public class Busqueda extends JFrame {
               int filasModificadas = reservasController.modificar(id, fechaEntrada, fechaSalida, valor, metodoPago);
               JOptionPane.showMessageDialog(null,
                   String.format("%d item editado con éxito!", filasModificadas));
-            }, () -> JOptionPane.showMessageDialog(null, "Por favor, elije un item"));
+            }, () -> JOptionPane.showMessageDialog(null, "Continuar"));
       } else {
         JOptionPane.showMessageDialog(null, "Por favor, elije un item");
         return;
